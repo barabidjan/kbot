@@ -15,7 +15,7 @@ test:
 
 clean:
 	rm -rf kbot
-
+	docker rmi -f ${REGISTRY}/${APP}:${VERSION}-${TARGET_ARCH}
 get:
 	go get
 
