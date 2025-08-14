@@ -55,7 +55,10 @@ macOS:
 	docker build . -t $(REGISTRY)/$(APP):$(VERSION)-$(TARGETARCH) \
 		--build-arg TARGETARCH=$(TARGETARCH) \
 		--build-arg VERSION=$(VERSION)
-	
+push_macOs:
+	@echo "Pushing Docker image for macOS"
+	docker push $(REGISTRY)/$(APP):$(VERSION)-$(TARGETARCH)	
+
 build_windows:
 	@echo "Building production version windows"
 	CGO_ENABLED=1 GOOS=windows GOARCH=amd64 go build -v -o kbot -ldflags "-X="github.com/barabidjan/kbot/cmd.appVersion=${VERSION}
@@ -66,4 +69,6 @@ windows:
 	docker build . -t $(REGISTRY)/$(APP):$(VERSION)-$(TARGETARCH) \
 		--build-arg TARGETARCH=$(TARGETARCH) \
 		--build-arg VERSION=$(VERSION)
-
+push_windows:
+	@echo "Pushing Docker image for windows"
+	docker push $(REGISTRY)/$(APP):$(VERSION)-$(TARGETARCH)
