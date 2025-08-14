@@ -22,8 +22,6 @@ get:
 TARGETOS=linux #darwin windows linux
 TARGETARCH=arm64 #adm64
 
-get:
-	go get
 
 build: format
 	@echo "Building production version..."
@@ -38,4 +36,34 @@ image:
 push:
 	@echo "Pushing Docker image..."
 	docker push ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
+
+
+
+linux:
+	@echo "Building Docker image for linux"
+	@docker build . -t $(REGISTRY)/$(APP):$(VERSION)-$(TARGETARCH) \
+		--build-arg TARGETARCH=$(TARGETARCH) \
+		--build-arg VERSION=$(VERSION)
+
+
+build_macOs: 
+	@echo "Building production version macOS"
+	CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 go build -v -o kbot -ldflags "-X="github.com/barabidjan/kbot/cmd.appVersion=${VERSION}
+macOS:
+	@echo "Building Docker image for macOS"
+	make build_macOs
+	docker build . -t $(REGISTRY)/$(APP):$(VERSION)-$(TARGETARCH) \
+		--build-arg TARGETARCH=$(TARGETARCH) \
+		--build-arg VERSION=$(VERSION)
+	
+build_windows:
+	@echo "Building production version windows"
+	CGO_ENABLED=1 GOOS=windows GOARCH=amd64 go build -v -o kbot -ldflags "-X="github.com/barabidjan/kbot/cmd.appVersion=${VERSION}
+
+windows:
+	@echo "Building Docker image for windows"
+	make build_windows
+	docker build . -t $(REGISTRY)/$(APP):$(VERSION)-$(TARGETARCH) \
+		--build-arg TARGETARCH=$(TARGETARCH) \
+		--build-arg VERSION=$(VERSION)
 
