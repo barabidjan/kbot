@@ -20,7 +20,7 @@ get:
 	go get
 
 TARGETOS=linux #darwin windows linux
-TARGETARCH=arm64 #adm64
+TARGETARCH=amd64 #adm64
 
 
 build: format
