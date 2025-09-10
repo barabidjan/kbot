@@ -9,7 +9,7 @@ image:
   repository: "barabidjan"
   # This sets the pull policy for images.
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v1.3.0-5c2c108"
+  tag: "v1.3.0-32afd4c"
   arch: amd64
   os: linux
 secret:
