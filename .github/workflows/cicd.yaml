@@ -29,3 +29,9 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GHCR_TOKEN }}
+
+# збираємо образ з використання змінної середовища 
+      - name: Build&Push
+        env:
+          APP: "kbot"
+        run: make image push
