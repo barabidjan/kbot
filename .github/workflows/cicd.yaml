@@ -15,7 +15,13 @@ jobs:
   ci:
     name: CI
     runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write # Grants write access to the repository contents
+      pull-requests: write # If your bot needs to create/approve pull requests
+
 # перший крок задачі дозволить запускати на ранері репозиторій із скриптами для виконання дії. 
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
