@@ -11,7 +11,7 @@ image:
   pullPolicy: IfNotPresent # Дозволяє замінити образ за замовчуванням
   # This sets the pull policy for images.
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v1.3.0-c8b94be"
+  tag: "v1.3.0-b3aea10"
   arch: amd64
   os: linux
   parameter: go
