@@ -29,7 +29,7 @@ build: format
 
 image:
 	@echo "Building Docker image..."
-	@docker build . -t $(REGISTRY)/$(APP):$(VERSION)-$(TARGETARCH) \
+	docker build . -t $(REGISTRY)/$(APP):$(VERSION)-$(TARGETARCH) \
 		--build-arg TARGETARCH=$(TARGETARCH) \
 		--build-arg VERSION=$(VERSION)
 
