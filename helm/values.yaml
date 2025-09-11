@@ -8,10 +8,10 @@ replicaCount: 1
 image:
   registry: "ghcr.io"
   repository: "barabidjan"
-  pullPolicy: IfNotPresent  # Дозволяє замінити образ за замовчуванням
+  pullPolicy: IfNotPresent # Дозволяє замінити образ за замовчуванням
   # This sets the pull policy for images.
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v1.3.0-32afd4c"
+  tag: "v1.3.0-c8b94be"
   arch: amd64
   os: linux
   parameter: go
