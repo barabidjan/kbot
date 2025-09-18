@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"github.com/spf13/cobra"
+	"github.com/stianeikeland/go-rpio"
 	telebot "gopkg.in/telebot.v4"
 )
 
@@ -17,6 +18,12 @@ var (
 	// TeleToken bot
 	TeleToken = os.Getenv("TELE_TOKEN")
 )
+
+
+
+
+
+
 
 // kbotCmd represents the kbot command
 var kbotCmd = &cobra.Command{
