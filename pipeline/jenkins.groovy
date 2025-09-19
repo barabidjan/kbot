@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    
+
     parameters {
         choice(
             name: 'OS',

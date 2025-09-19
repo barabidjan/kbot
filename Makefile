@@ -4,7 +4,7 @@ VERSION := $(shell git describe --tags --abbrev=0)-$(shell git rev-parse --short
 
 
 
-format: 
+format:
 	gofmt -s -w ./
 
 lint:
@@ -46,7 +46,7 @@ linux:
 		--build-arg VERSION=$(VERSION)
 
 
-build_macOs: 
+build_macOs:
 	@echo "Building production version macOS"
 	CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 go build -v -o kbot -ldflags "-X="github.com/barabidjan/kbot/cmd.appVersion=${VERSION}
 macOS:
@@ -57,7 +57,7 @@ macOS:
 		--build-arg VERSION=$(VERSION)
 push_macOs:
 	@echo "Pushing Docker image for macOS"
-	docker push $(REGISTRY)/$(APP):$(VERSION)-$(TARGETARCH)	
+	docker push $(REGISTRY)/$(APP):$(VERSION)-$(TARGETARCH)
 
 build_windows:
 	@echo "Building production version windows"
