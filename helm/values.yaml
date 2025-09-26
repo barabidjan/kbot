@@ -7,7 +7,7 @@ replicaCount: 1
 
 # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
 image:
-  repository: "ghrc.io/barabidjan/kbot"
+  repository: "ghcr.io/barabidjan/kbot"
   # This sets the pull policy for images.
   # Overrides the image tag whose default is the chart appVersion.
   tag: "v1.3.2-c5c206f"
