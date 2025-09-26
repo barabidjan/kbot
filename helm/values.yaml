@@ -10,7 +10,7 @@ image:
   repository: "ghcr.io/barabidjan"
   # This sets the pull policy for images.
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v1.3.3-1e4b6bf"
+  tag: "v1.3.3-60843f6"
   arch: amd64
 secret:
   name: "kbot"
